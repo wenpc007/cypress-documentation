@@ -1,38 +1,35 @@
 ---
-title: Installing Cypress
+title: 安装 Cypress
 ---
 
 <Alert type="info">
 
-## <Icon name="graduation-cap"></Icon> What you'll learn
+## <Icon name="graduation-cap"></Icon> 你将学到
 
-- How to install Cypress via `npm`
-- How to install Cypress via direct download
-- How to version and run Cypress via `package.json`
+- 如何通过 `npm` 安装Cypress
+- 如何通过直接下载安装
+- 如何通过 `package.json`控制版本和运行Cypress
 
 </Alert>
 
-## System requirements
+## 系统需求
 
-#### Operating System
+#### 操作系统
 
-Cypress is a desktop application that is installed on your computer. The desktop
-application supports these operating systems:
-
-- **macOS** 10.9 and above _(64-bit only)_
-- **Linux** Ubuntu 12.04 and above, Fedora 21 and Debian 8 _(64-bit only)_
-- **Windows** 7 and above
+Cypress是安装在您的计算机上的桌面应用程序。桌面应用程序支持以下操作系统:
+- **macOS** 10.9 和以上 _(仅支持 64-bit)_
+- **Linux** Ubuntu 12.04及以上版本，Fedora 21和Debian 8 _(仅支持 64-bit)_
+- **Windows** 7 以上
 
 #### Node.js
 
-If you're using `npm` to install Cypress, we support:
+如果你通过 `npm` 安装 Cypress, 我们支持:
 
-- **Node.js** 12 or 14 and above
+- **Node.js** 12 或 14 及以上版本
 
 #### Linux
 
-If you're using Linux, you'll want to have the required dependencies installed
-on your system.
+如果使用的是Linux，则需要在系统上安装所需的依赖项。
 
 #### Ubuntu/Debian
 
@@ -48,11 +45,9 @@ yum install -y xorg-x11-server-Xvfb gtk2-devel gtk3-devel libnotify-devel GConf2
 
 #### Docker
 
-Docker images with all of the required dependencies installed are available
-under [cypress/base](https://github.com/cypress-io/cypress-docker-images)
+[cypress/base](https://github.com/cypress-io/cypress-docker-images)Docker映像安装了所有必需依赖项
 
-If you're running your projects in containers, then you'll want Cypress in the
-container with the Node.js process.
+如果你在容器中运行你的项目，那么你会希望在容器中包含Cypress与Node.js进程。
 
 ```
   ui:
@@ -61,14 +56,14 @@ container with the Node.js process.
     # image: cypress/base:14
 ```
 
-`cypress/base` is a drop-in replacement for
+`cypress/base` 代替
 [base docker node images](https://hub.docker.com/_/node/).
 
-## Installing
+## 安装
 
 ### <Icon name="terminal"></Icon> `npm install`
 
-Install Cypress via `npm`:
+通过 `npm`安装Cypress:
 
 ```shell
 cd /your/project/path
@@ -78,14 +73,13 @@ cd /your/project/path
 npm install cypress --save-dev
 ```
 
-This will install Cypress locally as a dev dependency for your project.
+这将在本地安装Cypress作为项目的开发依赖项.
 
 <Alert type="info">
 
-Make sure that you have already run
-[`npm init`](https://docs.npmjs.com/cli/init) or have a `node_modules` folder or
-`package.json` file in the root of your project to ensure cypress is installed
-in the correct directory.
+确保您已经运行了
+[`npm init`](https://docs.npmjs.com/cli/init) 或者有一个 `node_modules` 文件夹 或者在项目根目录有
+`package.json` 文件来确认已在正确的目录成功安装 cypress
 
 </Alert>
 
@@ -93,28 +87,26 @@ in the correct directory.
 
 <Alert type="info">
 
-Notice that the Cypress `npm` package is a wrapper around the Cypress binary.
-The version of the `npm` package determines the version of the binary
-downloaded. As of version `3.0`, the binary is downloaded to a global cache
-directory to be used across projects.
+请注意，Cypress `npm` 包是Cypress二进制文件的封装。`npm` 包的版本决定了下载的二进制文件的版本。
+从 `3.0` 版本开始，二进制文件被下载到一个全局缓存目录中，供各个项目使用。
 
 </Alert>
 
 <Alert type="success">
 
-<strong class="alert-header">Best Practice</strong>
+<strong class="alert-header">最佳实践</strong>
 
-The recommended approach is to install Cypress with `npm` because :
+推荐的方法是使用`npm`安装Cypress，因为:
 
-- Cypress is versioned like any other dependency.
-- It simplifies running Cypress in
+- 与其他依赖项一样，Cypress也进行了版本控制.
+- 它简化了Cypress的运行
   [Continuous Integration](/guides/continuous-integration/introduction).
 
 </Alert>
 
 ### <Icon name="terminal"></Icon> `yarn add`
 
-Installing Cypress via [`yarn`](https://yarnpkg.com):
+通过 [`yarn`](https://yarnpkg.com)安装Cypress:
 
 ```shell
 cd /your/project/path
@@ -124,17 +116,15 @@ cd /your/project/path
 yarn add cypress --dev
 ```
 
-### <Icon name="download"></Icon> Direct download
+### <Icon name="download"></Icon> 直接下载
 
-If you're not using Node or `npm` in your project or you want to try Cypress out
-quickly, you can always
-[download Cypress directly from our CDN](https://download.cypress.io/desktop).
+如果你没有在你的项目中使用Node或`npm`，或者你想快速尝试Cypress，
+你可以[直接从我们的CDN下载Cypress](https://download.cypress.io/desktop).
 
 <Alert type="warning">
 
-Recording runs to the Dashboard is not possible from the direct download. This
-download is only intended as a quick way to try out Cypress. To record tests to
-the Dashboard, you'll need to install Cypress as an `npm` dependency.
+记录运行到仪表板是不可能从直接下载。这个下载只是作为一种快速尝试柏树的方法。
+要将测试记录到Dashboard，你需要将Cypress作为一个`npm`依赖项安装。
 
 </Alert>
 

@@ -1,71 +1,71 @@
 {
   "guides": [
     {
-      "title": "Guides",
+      "title": "指南",
       "slug": "guides",
       "children": [
         {
-          "title": "Overview",
+          "title": "总览",
           "slug": "overview",
           "children": [
             {
-              "title": "Why Cypress?",
+              "title": "为什么选择Cypress?",
               "slug": "why-cypress"
             },
             {
-              "title": "Key Differences",
+              "title": "关键区别",
               "slug": "key-differences"
             }
           ]
         },
         {
-          "title": "Getting Started",
+          "title": "入门",
           "slug": "getting-started",
           "children": [
             {
-              "title": "Installing Cypress",
+              "title": "安装 Cypress",
               "slug": "installing-cypress"
             },
             {
-              "title": "Writing Your First Test",
+              "title": "编写第一个测试",
               "slug": "writing-your-first-test"
             },
             {
-              "title": "Testing Your App",
+              "title": "测试你的应用",
               "slug": "testing-your-app"
             }
           ]
         },
         {
-          "title": "Core Concepts",
+          "title": "核心概念",
           "slug": "core-concepts",
           "children": [
             {
-              "title": "Introduction to Cypress",
+              "title": "介绍Cypress",
               "slug": "introduction-to-cypress"
             },
             {
-              "title": "Writing and Organizing Tests",
+              "title": "编写和组织测试",
               "slug": "writing-and-organizing-tests"
             },
             {
-              "title": "Retry-ability",
+              "title": "重试能力",
               "slug": "retry-ability"
             },
             {
-              "title": "Interacting with Elements",
+              "title": "与DOM元素交互",
               "slug": "interacting-with-elements"
             },
             {
-              "title": "Variables and Aliases",
+              "title": "变量和别名",
               "slug": "variables-and-aliases"
             },
             {
-              "title": "Conditional Testing",
+              "title": "条件化测试",
               "slug": "conditional-testing"
             },
             {
-              "title": "The Test Runner",
+              "title": "测试运行器",
               "slug": "test-runner"
             },
             {
@@ -133,95 +133,95 @@
           ]
         },
         {
-          "title": "Guides",
+          "title": "指南",
           "slug": "guides",
           "children": [
             {
-              "title": "Command Line",
+              "title": "命令行",
               "slug": "command-line"
             },
             {
-              "title": "Module API",
+              "title": "模块API",
               "slug": "module-api"
             },
             {
-              "title": "Debugging",
+              "title": "调试",
               "slug": "debugging"
             },
             {
-              "title": "Network Requests",
+              "title": "网络请求",
               "slug": "network-requests"
             },
             {
-              "title": "Test Retries",
+              "title": "测试重试",
               "slug": "test-retries"
             },
             {
-              "title": "Parallelization",
+              "title": "并发执行",
               "slug": "parallelization"
             },
             {
-              "title": "Environment Variables",
+              "title": "环境变量",
               "slug": "environment-variables"
             },
             {
-              "title": "Stubs, Spies, and Clocks",
+              "title": "桩，间谍和时钟",
               "slug": "stubs-spies-and-clocks"
             },
             {
-              "title": "Screenshots and Videos",
+              "title": "截图和录屏",
               "slug": "screenshots-and-videos"
             },
             {
-              "title": "Launching Browsers",
+              "title": "启动浏览器",
               "slug": "launching-browsers"
             },
             {
-              "title": "Cross Browser Testing",
+              "title": "跨浏览器测试",
               "slug": "cross-browser-testing"
             },
             {
-              "title": "Web Security",
+              "title": "Web安全",
               "slug": "web-security"
             }
           ]
         },
         {
-          "title": "Testing Strategies",
+          "title": "测试策略",
           "slug": "testing-strategies",
           "children": [
             {
-              "title": "Auth0 Authentication",
+              "title": "Auth0 验证",
               "slug": "auth0-authentication"
             },
             {
-              "title": "Amazon Cognito Authentication",
+              "title": "Amazon Cognito 验证",
               "slug": "amazon-cognito-authentication"
             },
             {
-              "title": "Okta Authentication",
+              "title": "Okta 验证",
               "slug": "okta-authentication"
             },
             {
-              "title": "Google Authentication",
+              "title": "Google 验证",
               "slug": "google-authentication"
             },
             {
-              "title": "Working with GraphQL",
+              "title": "集成 GraphQL",
               "slug": "working-with-graphql"
             }
           ]
         },
         {
-          "title": "Continuous Integration",
+          "title": "持续集成",
           "slug": "continuous-integration",
           "children": [
             {
-              "title": "Introduction",
+              "title": "介绍",
               "slug": "introduction"
             },
             {
-              "title": "CI Provider Examples",
+              "title": "持续集成提供商例子",
               "slug": "ci-provider-examples"
             },
             {
@@ -247,21 +247,21 @@
           ]
         },
         {
-          "title": "Component Testing",
+          "title": "组件测试",
           "slug": "component-testing",
           "children": [
             {
-              "title": "Introduction",
+              "title": "介绍",
               "slug": "introduction"
             },
             {
-              "title": "Framework Configuration",
+              "title": "框架配置",
               "slug": "framework-configuration"
             }
           ]
         },
         {
-          "title": "Migrating to Cypress",
+          "title": "迁移到 Cypress",
           "slug": "migrating-to-cypress",
           "children": [
             {
@@ -271,19 +271,19 @@
           ]
         },
         {
-          "title": "Tooling",
+          "title": "工具",
           "slug": "tooling",
           "children": [
             {
-              "title": "IDE Integration",
+              "title": "IDE集成",
               "slug": "IDE-integration"
             },
             {
-              "title": "Plugins",
+              "title": "插件",
               "slug": "plugins-guide"
             },
             {
-              "title": "Reporters",
+              "title": "报表",
               "slug": "reporters"
             },
             {
@@ -291,69 +291,69 @@
               "slug": "typescript-support"
             },
             {
-              "title": "Visual Testing",
+              "title": "视觉测试",
               "slug": "visual-testing"
             },
             {
-              "title": "Code Coverage",
+              "title": "代码覆盖率",
               "slug": "code-coverage"
             }
           ]
         },
         {
-          "title": "References",
+          "title": "参考",
           "slug": "references",
           "children": [
             {
-              "title": "Assertions",
+              "title": "断言",
               "slug": "assertions"
             },
             {
-              "title": "Configuration",
+              "title": "配置",
               "slug": "configuration"
             },
             {
-              "title": "Client Certificates",
+              "title": "客户端认证",
               "slug": "client-certificates"
             },
             {
-              "title": "Proxy Configuration",
+              "title": "代理配置",
               "slug": "proxy-configuration"
             },
             {
-              "title": "Best Practices",
+              "title": "最佳实践",
               "slug": "best-practices"
             },
             {
-              "title": "Error Messages",
+              "title": "错误消息",
               "slug": "error-messages"
             },
             {
-              "title": "Bundled Tools",
+              "title": "打包的工具",
               "slug": "bundled-tools"
             },
             {
-              "title": "Trade-offs",
+              "title": "折中",
               "slug": "trade-offs"
             },
             {
-              "title": "Troubleshooting",
+              "title": "疑难解答",
               "slug": "troubleshooting"
             },
             {
-              "title": "Changelog",
+              "title": "变更日志",
               "slug": "changelog"
             },
             {
-              "title": "Migration Guide",
+              "title": "迁移指南",
               "slug": "migration-guide"
             },
             {
-              "title": "Roadmap",
+              "title": "路线图",
               "slug": "roadmap"
             },
             {
-              "title": "Experiments",
+              "title": "体验功能",
               "slug": "experiments"
             }
           ]
@@ -371,33 +371,33 @@
           "slug": "api",
           "children": [
             {
-              "title": "Table of Contents",
+              "title": "内容表",
               "redirect": "/api/table-of-contents"
             }
           ]
         },
         {
-          "title": "Events",
+          "title": "事件",
           "slug": "events",
           "children": [
             {
-              "title": "Catalog of Events",
+              "title": "事件分类",
               "slug": "catalog-of-events"
             }
           ]
         },
         {
-          "title": "Assertions",
+          "title": "断言",
           "slug": "assertions",
           "children": [
             {
-              "title": "All Assertions",
+              "title": "所有断言",
               "redirect": "/guides/references/assertions"
             }
           ]
         },
         {
-          "title": "Commands",
+          "title": "命令",
           "slug": "commands",
           "children": [
             {
@@ -731,7 +731,7 @@
           ]
         },
         {
-          "title": "Utilities",
+          "title": "实用程序",
           "slug": "utilities",
           "children": [
             {
@@ -835,19 +835,19 @@
           ]
         },
         {
-          "title": "Plugins",
+          "title": "插件",
           "slug": "plugins",
           "children": [
             {
-              "title": "Writing a Plugin",
+              "title": "编写一个插件",
               "slug": "writing-a-plugin"
             },
             {
-              "title": "Configuration",
+              "title": "配置",
               "slug": "configuration-api"
             },
             {
-              "title": "Preprocessors",
+              "title": "预处理器",
               "slug": "preprocessors-api"
             },
             {
@@ -881,29 +881,29 @@
   ],
   "plugins": [
     {
-      "title": "Plugins",
+      "title": "插件",
       "slug": "plugins"
     }
   ],
   "examples": [
     {
-      "title": "Examples",
+      "title": "示例",
       "slug": "examples",
       "children": [
         {
-          "title": "Examples",
+          "title": "示例",
           "slug": "examples",
           "children": [
             {
-              "title": "Recipes",
+              "title": "配方",
               "slug": "recipes"
             },
             {
-              "title": "Tutorials",
+              "title": "指南",
               "slug": "tutorials"
             },
             {
-              "title": "Applications",
+              "title": "应用程序",
               "slug": "applications"
             },
             {
@@ -911,33 +911,33 @@
               "slug": "docker"
             },
             {
-              "title": "Workshops",
+              "title": "工作坊",
               "slug": "workshop"
             },
             {
-              "title": "Projects",
+              "title": "项目",
               "slug": "projects-media"
             }
           ]
         },
         {
-          "title": "Media",
+          "title": "媒体",
           "slug": "media",
           "children": [
             {
-              "title": "Courses",
+              "title": "课程",
               "slug": "courses-media"
             },
             {
-              "title": "Webinars",
+              "title": "直播",
               "slug": "webinars-media"
             },
             {
-              "title": "Blogs",
+              "title": "博客",
               "slug": "blogs-media"
             },
             {
-              "title": "Talks",
+              "title": "对话",
               "slug": "talks-media"
             },
             {
@@ -955,19 +955,19 @@
   ],
   "faq": [
     {
-      "title": "FAQ",
+      "title": "常见问题",
       "slug": "faq",
       "children": [
         {
-          "title": "FAQ",
+          "title": "常见问题",
           "slug": "questions",
           "children": [
             {
-              "title": "Using Cypress",
+              "title": "使用 Cypress",
               "slug": "using-cypress-faq"
             },
             {
-              "title": "General Questions",
+              "title": "常规问题",
               "slug": "general-questions-faq"
             },
             {
@@ -975,7 +975,7 @@
               "slug": "dashboard-faq"
             },
             {
-              "title": "Company",
+              "title": "公司",
               "slug": "company-faq"
             }
           ]

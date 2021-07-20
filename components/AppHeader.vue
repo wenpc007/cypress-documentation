@@ -34,7 +34,7 @@ export default {
     return {
       navLink: [
         {
-          label: 'Guides',
+          label: '指南',
           path: '/guides/overview/why-cypress',
         },
         {
@@ -42,15 +42,15 @@ export default {
           path: '/api/table-of-contents',
         },
         {
-          label: 'Plugins',
+          label: '插件',
           path: '/plugins',
         },
         {
-          label: 'Examples',
+          label: '示例',
           path: '/examples/examples/recipes',
         },
         {
-          label: 'FAQ',
+          label: '常见问题',
           path: '/faq/questions/using-cypress-faq',
         },
       ],

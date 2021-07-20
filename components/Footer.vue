@@ -19,7 +19,7 @@ export default {
             href="https://www.cypress.io/about"
             class="text-base text-gray-500 hover:text-gray-900"
           >
-            About
+            关于
           </a>
         </div>
 
@@ -37,7 +37,7 @@ export default {
             href="https://github.com/cypress-io/cypress/discussions"
             class="text-base text-gray-500 hover:text-gray-900"
           >
-            Discussions
+            讨论
           </a>
         </div>
 
@@ -46,7 +46,7 @@ export default {
             href="https://on.cypress.io/changelog"
             class="text-base text-gray-500 hover:text-gray-900"
           >
-            Changelog
+            变更日志
           </a>
         </div>
 
@@ -55,7 +55,7 @@ export default {
             href="https://on.cypress.io/roadmap"
             class="text-base text-gray-500 hover:text-gray-900"
           >
-            Roadmap
+            路线图
           </a>
         </div>
 
