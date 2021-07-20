@@ -1,39 +1,34 @@
 ---
-title: Command Line
+title: 命令行
 ---
 
 <Alert type="info">
 
-## <Icon name="graduation-cap"></Icon> What you'll learn
+## <Icon name="graduation-cap"></Icon> 你将学习到
 
-- How to run Cypress from the command line
-- How to specify which spec files to run
-- How to launch other browsers
-- How to record your tests to the Dashboard
+- 如何从命令行运行Cypress 
+- 如何指定运行哪个测试规格文件
+- 如何启动其他浏览器
+- 如何记录您的测试到Dashboard服务
 
 </Alert>
 
-## Installation
+## 安装
 
-This guide assumes you've already read our
-[Installing Cypress](/guides/getting-started/installing-cypress) guide and
-installed Cypress as an `npm` module. After installing you'll be able to execute
-all of the commands in this document from your **project root**.
+本指南假设您已经阅读了我们的[安装Cypress](/guides/getting-started/installing-cypress) 指南并且
+已安装Cypress为一个`npm`模块. 安装之后，您能够从您的**项目根目录**执行本文档中的所有命令.
 
-## How to run commands
+## 如何运行命令
 
 <Alert type="info">
 
-You can alternatively require and run Cypress as a node module using our
-[Module API](/guides/guides/module-api).
+您也可以使用我们的[module API](/guides/guides/module-api)要求,以node模块运行Cypress.
 
 </Alert>
 
-For brevity we've omitted the full path to the cypress executable in each
-command's documentation.
+为了简洁，我们在每个命令的文档中省略了cypress可执行文件的完整路径.
 
-To run a command, you'll need to prefix each command in order to properly locate
-the cypress executable.
+要运行一个命令，您需要为每个命令加上前缀，以便正确地定位cypress可执行文件。
 
 ```shell
 $(npm bin)/cypress run
@@ -45,25 +40,22 @@ $(npm bin)/cypress run
 ./node_modules/.bin/cypress run
 ```
 
-...or... (requires npm@5.2.0 or greater)
+...或者... (需要 npm@5.2.0 或更高版本)
 
 ```shell
 npx cypress run
 ```
 
-...or by using Yarn...
+...或通过 Yarn...
 
 ```shell
 yarn open
 ```
 
-You may find it easier to add the cypress command to the `scripts` object in
-your `package.json` file and call it from an
-[`npm run` script](https://docs.npmjs.com/cli/run-script.html).
+您可能会发现将cypress命令添加到`package.json`中的“scripts”更简单。并从[`npm run script`]调用它(https://docs.npmjs.com/cli/run-script.html).
 
-When calling a command using `npm run`, you need to pass the command's arguments
-using the `--` string. For example, if you have the following command defined in
-your `package.json`
+当使用`npm run`调用命令时，需要使用`--`字符串传递命令参数。
+例如，如果在`package.json`中定义了以下命令
 
 ```json
 {
@@ -73,15 +65,13 @@ your `package.json`
 }
 ```
 
-...and want to run tests from a single spec file and record the results on the
-Dashboard, the command should be:
+...如果想运行单个测试文件执行测试，并在Dashboard服务上记录结果，命令应该是:
 
 ```shell
 npm run cy:run -- --record --spec "cypress/integration/my-spec.js"
 ```
 
-If you are using the [npx](https://github.com/zkat/npx) tool, you can invoke the
-locally installed Cypress tool directly:
+如果你正在使用[npx](https://github.com/zkat/npx)工具，你可以直接调用本地安装的Cypress工具:
 
 ```shell
 npx cypress run --record --spec "cypress/integration/my-spec.js"
@@ -89,46 +79,44 @@ npx cypress run --record --spec "cypress/integration/my-spec.js"
 
 <Alert type="info">
 
-Read how we typically organize and execute npm scripts in the blog post
-[How I Organize my npm Scripts](https://glebbahmutov.com/blog/organize-npm-scripts/).
+阅读我们通常是如何组织和执行npm脚本的博客文章[how I organize my npm scripts](https://glebbahmutov.com/blog/organize-npm-scripts/).
 
 </Alert>
 
-## Commands
+##  命令
 
 ### `cypress run`
 
-Runs Cypress tests to completion. By default, `cypress run` will run all tests
-headlessly.
+运行Cypress测试以完成。默认情况下，“cypress run”将无头运行所有测试.
 
 ```shell
 cypress run [options]
 ```
 
-#### Options
+#### 选项
 
-| Option                     | Description                                                                                                                                                                                |
+|  选项                      | 描述                                                                                                                                                                                |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `--browser`, `-b`          | [Run Cypress in the browser with the given name. If a filesystem path is supplied, Cypress will attempt to use the browser at that path.](#cypress-run-browser-lt-browser-name-or-path-gt) |
-| `--ci-build-id`            | [Specify a unique identifier for a run to enable grouping or parallelization.](#cypress-run-ci-build-id-lt-id-gt)                                                                          |
-| `--config`, `-c`           | [Specify configuration](#cypress-run-config-lt-config-gt)                                                                                                                                  |
-| `--config-file`, `-C`      | [Specify configuration file](#cypress-run-config-file-lt-config-file-gt)                                                                                                                   |
-| `--env`, `-e`              | [Specify environment variables](#cypress-run-env-lt-env-gt)                                                                                                                                |
-| `--group`                  | [Group recorded tests together under a single run](#cypress-run-group-lt-name-gt)                                                                                                          |
-| `--headed`                 | [Displays the browser instead of running headlessly](#cypress-run-headed)                                                                                                                  |
-| `--headless`               | [Hide the browser instead of running headed (default during `cypress run`)](#cypress-run-headless)                                                                                         |
-| `--help`, `-h`             | Output usage information                                                                                                                                                                   |
-| `--key`, `-k`              | [Specify your secret record key](#cypress-run-record-key-lt-record-key-gt)                                                                                                                 |
-| `--no-exit`                | [Keep Cypress Test Runner open after tests in a spec file run](#cypress-run-no-exit)                                                                                                       |
-| `--parallel`               | [Run recorded specs in parallel across multiple machines](#cypress-run-parallel)                                                                                                           |
-| `--port`,`-p`              | [Override default port](#cypress-run-port-lt-port-gt)                                                                                                                                      |
-| `--project`, `-P`          | [Path to a specific project](#cypress-run-project-lt-project-path-gt)                                                                                                                      |
-| `--quiet`, `-q`            | If passed, Cypress output will not be printed to `stdout`. Only output from the configured [Mocha reporter](/guides/tooling/reporters) will print.                                         |
-| `--record`                 | [Whether to record the test run](#cypress-run-record-key-lt-record-key-gt)                                                                                                                 |
-| `--reporter`, `-r`         | [Specify a Mocha reporter](#cypress-run-reporter-lt-reporter-gt)                                                                                                                           |
-| `--reporter-options`, `-o` | [Specify Mocha reporter options](#cypress-run-reporter-lt-reporter-gt)                                                                                                                     |
-| `--spec`, `-s`             | [Specify the spec files to run](#cypress-run-spec-lt-spec-gt)                                                                                                                              |
-| `--tag`, `-t`              | [Identify a run with a tag or tags](#cypress-run-spec-lt-spec-gt)                                                                                                                          |
+| `--browser`, `-b`          | [在浏览器中使用给定的名称运行Cypress。如果提供了文件系统路径，Cypress将尝试在该路径上使用浏览器.](#cypress-run-browser-lt-browser-name-or-path-gt) |
+| `--ci-build-id`            | [为运行指定唯一标识符，以启用分组或并行化.](#cypress-run-ci-build-id-lt-id-gt)                                                                          |
+| `--config`, `-c`           | [指定配置](#cypress-run-config-lt-config-gt)                                                                                                                                  |
+| `--config-file`, `-C`      | [指定配置文件](#cypress-run-config-file-lt-config-file-gt)                                                                                                                   |
+| `--env`, `-e`              | [指定环境变量](#cypress-run-env-lt-env-gt)                                                                                                                                |
+| `--group`                  | [将记录的测试分组在一次运行下](#cypress-run-group-lt-name-gt)                                                                                                          |
+| `--headed`                 | [显示浏览器，而不是无头运行](#cypress-run-headed)                                                                                                                  |
+| `--headless`               | [隐藏浏览器而不是运行头部(默认通过 `cypress run`)](#cypress-run-headless)                                                                                         |
+| `--help`, `-h`             | 输出使用信息                                                                                                                                                                   |
+| `--key`, `-k`              | [指定您的记录安全密钥](#cypress-run-record-key-lt-record-key-gt)                                                                                                                 |
+| `--no-exit`                | [在运行测试规格文件中的测试后，保持Cypress测试运行器打开](#cypress-run-no-exit)                                                                                                       |
+| `--parallel`               | [在多台机器上并行运行记录的规格测试文件](#cypress-run-parallel)                                                                                                           |
+| `--port`,`-p`              | [覆盖缺省端口](#cypress-run-port-lt-port-gt)                                                                                                                                      |
+| `--project`, `-P`          | [特定项目的路径](#cypress-run-project-lt-project-path-gt)                                                                                                                      |
+| `--quiet`, `-q`            | 如果传递，Cypress输出将不会打印到`stdout`。仅输出来自 [Mocha reporter](/guides/tooling/reporters) 配置的打印.                                         |
+| `--record`                 | [是否记录测试运行](#cypress-run-record-key-lt-record-key-gt)                                                                                                                 |
+| `--reporter`, `-r`         | [指定一个 Mocha 报表](#cypress-run-reporter-lt-reporter-gt)                                                                                                                           |
+| `--reporter-options`, `-o` | [指定Mocha报表选项](#cypress-run-reporter-lt-reporter-gt)                                                                                                                     |
+| `--spec`, `-s`             | [指定要运行的测试规格文件](#cypress-run-spec-lt-spec-gt)                                                                                                                              |
+| `--tag`, `-t`              | [用一个或多个标签来确定一个运行](#cypress-run-spec-lt-spec-gt)                                                                                                                          |
 
 #### `cypress run --browser <browser-name-or-path>`
 
@@ -136,41 +124,35 @@ cypress run [options]
 cypress run --browser chrome
 ```
 
-The "browser" argument can be set to `chrome`, `chromium`, `edge`, `electron`,
-`firefox` to launch a browser detected on your system. Cypress will attempt to
-automatically find the installed browser for you.
+"browser"参数可以设置为`chrome`，`chromium`， `edge`， `electron`， `firefox`来启动一个在你的系统上检测到的浏览器。
+Cypress将尝试为您自动找到已安装的浏览器。
 
-To launch non-stable browsers, add a colon and the desired release channel. For
-example, to launch Chrome Canary, use `chrome:canary`.
+要启动不稳定的浏览器，请添加冒号和所需的发布通道。例如，要启动Chrome Canary，请使用`Chrome: Canary`。
 
-You can also choose a browser by supplying a path:
+你也可以通过提供路径来选择浏览器:
 
 ```shell
 cypress run --browser /usr/bin/chromium
 ```
 
-[Having trouble with browser detection? Check out our troubleshooting guide](/guides/references/troubleshooting#Launching-browsers)
+[浏览器检测有问题?查看我们的故障排除指南](/guides/references/troubleshooting#Launching-browsers)
 
 #### `cypress run --ci-build-id <id>`
 
-This value should be automatically detected for most CI providers and is
-unnecessary to define unless Cypress is unable to determine it.
+大多数CI提供者应该自动检测这个值，并且无需定义，除非Cypress无法确定它。
 
-Typically, this is defined as an environment variable within your CI provider,
-defining a unique "build" or "run".
+通常，它被定义为CI提供程序中的一个环境变量，定义一个唯一的`build`或`run`。
 
 ```shell
 cypress run --ci-build-id BUILD_NUMBER
 ```
 
-Only valid when providing a `--group` or `--parallel` flag. Read our
-[parallelization](/guides/guides/parallelization) documentation to learn more.
+仅在提供`--group`或`--parallel`标志时有效。阅读我们的
+[并行化](/guides/guides/parallelization) 文档以了解更多.
 
 #### `cypress run --config <config>`
 
-Set [configuration](/guides/references/configuration) values. Separate multiple
-values with a comma. The values set here override any values set in your
-configuration file.
+设置[配置](/guides/references/configuration)值。多个值之间用逗号分隔。这里设置的值将覆盖配置文件中设置的任何值。
 
 ```shell
 cypress run --config pageLoadTimeout=100000,watchForFileChanges=false
@@ -178,34 +160,32 @@ cypress run --config pageLoadTimeout=100000,watchForFileChanges=false
 
 <Alert type="info">
 
-##### <Icon name="graduation-cap"></Icon> Real World Example
+##### <Icon name="graduation-cap"></Icon> 真实世界的例子
 
 The Cypress
-[Real World App (RWA)](https://github.com/cypress-io/cypress-realworld-app) uses
-`--config` flag to easily specify
-[viewport](/guides/references/configuration#Viewport) sizes for responsive
-testing locally and in dedicated CI jobs. Examples:
+[Real World App (RWA)](https://github.com/cypress-io/cypress-realworld-app) 使用
+`--config` 标记，方便指定
+[视口](/guides/references/configuration#Viewport) 用于本地响应测试和用于CI的大小。例子:
 
 - <Icon name="github"></Icon>
   [npm scripts](https://github.com/cypress-io/cypress-realworld-app/blob/07a6483dfe7ee44823380832b0b23a4dacd72504/package.json#L120)
-  to run Cypress in mobile viewport.
+  在移动视口中运行Cypress。
 - <Icon name="github"></Icon>
   [Circle CI job configuration](https://github.com/cypress-io/cypress-realworld-app/blob/07a6483dfe7ee44823380832b0b23a4dacd72504/.circleci/config.yml#L82-L100)
-  for running test suites in mobile viewport.
+  用于在移动视图中运行测试套件.
 
 </Alert>
 
 #### `cypress run --config-file <config-file>`
 
-You can specify a path to a JSON file where
-[configuration](/guides/references/configuration) values are set. This defaults
-to `cypress.json`.
+您可以指定JSON文件的路径
+[配置](/guides/references/configuration) 值集。这个默认值在`cypress.json`.
 
 ```shell
 cypress run --config-file tests/cypress-config.json
 ```
 
-You can pass `false` to disable the use of a configuration file entirely.
+你可以传递`false`来完全禁用配置文件的使用。
 
 ```shell
 cypress run --config-file false
@@ -213,20 +193,19 @@ cypress run --config-file false
 
 #### `cypress run --env <env>`
 
-Set Cypress [environment variables](/guides/guides/environment-variables).
+设置Cypress[环境变量](/guides/guides/environment-variables).
 
 ```shell
 cypress run --env host=api.dev.local
 ```
 
-Pass several variables using commas and no spaces. Numbers are automatically
-converted from strings.
+传递几个使用逗号和不使用空格的变量。数字从字符串自动转换.
 
 ```shell
 cypress run --env host=api.dev.local,port=4222
 ```
 
-Pass an object as a JSON in a string.
+在字符串中传递一个JSON对象。
 
 ```shell
 cypress run --env flags='{"feature-a":true,"feature-b":false}'
@@ -234,14 +213,13 @@ cypress run --env flags='{"feature-a":true,"feature-b":false}'
 
 #### `cypress run --group <name>`
 
-Group recorded tests together under a single run.
+将记录的测试分组在一次运行下。
 
 ```shell
 cypress run --group develop-env
 ```
 
-You can add multiple groups to the same run by passing a different name. This
-can help distinguish groups of specs from each other.
+通过传递不同的名称，可以将多个组添加到同一个运行中。这可以帮助区分不同的规格组.
 
 ```shell
 cypress run --group admin-tests --spec 'cypress/integration/admin/**/*'
@@ -251,16 +229,15 @@ cypress run --group admin-tests --spec 'cypress/integration/admin/**/*'
 cypress run --group user-tests --spec 'cypress/integration/user/**/*'
 ```
 
-Specifying the `--ci-build-id` may also be necessary.
+也可能需要指定`--ci-build-id`。
 
-[Read more about grouping.](/guides/guides/parallelization#Grouping-test-runs)
+[阅读更多关于分组的内容.](/guides/guides/parallelization#Grouping-test-runs)
 
 #### `cypress run --headed`
 
-By default, Cypress will run tests headlessly during `cypress run`.
+默认情况下，Cypress将在`cypress run`期间无头运行测试 .
 
-Passing `--headed` will force the browser to be shown. This matches how you run
-any browser via `cypress open`.
+传递`--heading`将强制显示浏览器。指定通过`cypress open`运行的任意浏览器。
 
 ```shell
 cypress run --headed
@@ -268,11 +245,9 @@ cypress run --headed
 
 #### `cypress run --no-exit`
 
-To prevent the Cypress Test Runner from exiting after running tests in a spec
-file, use `--no-exit`.
+若要防止Cypress测试运行程序在运行规格文件中的测试后退出，请使用 `--no-exit`.
 
-You can pass `--headed --no-exit` in order to view the **command log** or have
-access to **developer tools** after a `spec` has run.
+您可以通过`--headed --no-exit`来查看命令日志或在`spec`运行后访问开发人员工具。
 
 ```shell
 cypress run --headed --no-exit
@@ -280,22 +255,20 @@ cypress run --headed --no-exit
 
 #### `cypress run --parallel`
 
-Run recorded specs in [parallel](/guides/guides/parallelization) across multiple
-machines.
+在多台机器上运行[parallel](/guides/guides/parallelization)中记录的规格。
 
 ```shell
 cypress run --record --parallel
 ```
 
-You can additionally pass a `--group` flag so this shows up as a named
+你可以另外传递一个`--group` 标志，这样它就会显示为命名的
 [group](/guides/guides/parallelization#Grouping-test-runs).
 
 ```shell
 cypress run --record --parallel --group e2e-staging-specs
 ```
 
-Read our [parallelization](/guides/guides/parallelization) documentation to
-learn more.
+阅读我们的[并行化](/guides/guides/parallelization)文档来了解更多。
 
 #### `cypress run --port <port>`
 
@@ -305,8 +278,7 @@ cypress run --port 8080
 
 #### `cypress run --project <project-path>`
 
-To see this in action we've set up an
-[example repo to demonstrate this here](https://github.com/cypress-io/cypress-test-nested-projects).
+为了看到它的实际应用，我们设置了一个[示例回购在这里演示](https://github.com/cypress-io/cypress-test-nested-projects).
 
 ```shell
 cypress run --project ./some/nested/folder
@@ -314,42 +286,37 @@ cypress run --project ./some/nested/folder
 
 #### `cypress run --record --key <record-key>`
 
-Record video of tests running after
-[setting up your project to record](/guides/dashboard/projects#Setup). After
-setting up your project you will be given a **Record Key**.
+在[设置要记录的项目](/guides/dashboard/projects#Setup)之后录制测试运行的视频. 在设置你的项目后，你将得到一个**Record key**.
 
 ```shell
 cypress run --record --key <record_key>
 ```
 
-If you set the **Record Key** as the environment variable `CYPRESS_RECORD_KEY`,
-you can omit the `--key` flag.
-
-You'd typically set this environment variable when running in
-[Continuous Integration](/guides/continuous-integration/introduction).
+如果您将**Record Key**设置为环境变量' CYPRESS_RECORD_KEY '，
+你可以省略`--key`标志。
+你通常会在[持续集成](/guides/continuous-integration/introduction)中运行时设置这个环境变量.
 
 ```shell
 export CYPRESS_RECORD_KEY=abc-key-123
 ```
 
-Now you can omit the `--key` flag.
+现在可以省略`--key`标志。
 
 ```shell
 cypress run --record
 ```
 
-You can [read more about recording runs here](/guides/dashboard/projects#Setup).
+你可以[在这里阅读更多关于记录运行的内容](/guides/dashboard/projects#Setup).
 
 #### `cypress run --reporter <reporter>`
 
-You can tests specifying a specific [Mocha reporter](/guides/tooling/reporters).
+您可以指定一个特定的[Mocha reporter](/guides/tooling/reporters).进行测试
 
 ```shell
 cypress run --reporter json
 ```
 
-You can specify reporter options using the
-`--reporter-options <reporter-options>` flag.
+您可以使用`--reporter-options <reporter-options>`标志指定reporter选项。
 
 ```shell
 cypress run --reporter junit --reporter-options mochaFile=result.xml,toConsole=true
@@ -357,29 +324,25 @@ cypress run --reporter junit --reporter-options mochaFile=result.xml,toConsole=t
 
 #### `cypress run --spec <spec>`
 
-Run tests specifying a single test file to run instead of all tests. The spec
-path should be an absolute path or can relative to the current working
-directory.
+运行测试时指定要运行的单个测试文件，而不是所有测试。测试规格路径应该是绝对路径，或者可以是当前工作目录的相对路径。
 
 ```shell
 cypress run --spec "cypress/integration/examples/actions.spec.js"
 ```
 
-Run tests within the folder matching the glob _(Note: Using double quotes is
-strongly recommended)_.
+在匹配glob的文件夹中运行测试 _(注意:强烈建议使用双引号)_。
 
 ```shell
 cypress run --spec "cypress/integration/login/**/*"
 ```
 
-Run tests specifying multiple test files to run.
+运行测试时指定要运行的多个测试文件。
 
 ```shell
 cypress run --spec "cypress/integration/examples/actions.spec.js,cypress/integration/examples/files.spec.js"
 ```
 
-Use in combination with `--project` parameter. Imagine the Cypress tests are in
-a subfolder `tests/e2e` of the current project:
+与`--project`参数组合使用。假设Cypress测试位于当前项目的子文件夹`tests/e2e`中:
 
 ```
 app/
@@ -394,7 +357,7 @@ app/
       cypress.json
 ```
 
-If we are in the `app` folder, we can run the specs using the following command
+如果我们在`app`文件夹中，我们可以使用以下命令运行规格
 
 ```shell
 cypress run --project tests/e2e --spec ./tests/e2e/cypress/integration/spec.js
@@ -402,45 +365,42 @@ cypress run --project tests/e2e --spec ./tests/e2e/cypress/integration/spec.js
 
 #### `cypress run --tag <tag>`
 
-Add a tag or tags to the recorded run. This can be used to help identify
-separate run when displayed in the Dashboard.
+向记录的运行中添加一个或多个标记。当在Dashboard中显示时，这可以用于帮助识别单独的运行。
 
 ```shell
 cypress run  --record --tag "staging"
 ```
 
-Give a run multiple tags.
+给一个运行设置多个标签。
 
 ```shell
 cypress run --record --tag "production,nightly"
 ```
 
-The Dashboard will display any tags sent with the appropriate run.
+Dashboard将显示在适当运行时发送的任何标记。
 
 <DocsImage src="/img/dashboard/dashboard-run-with-tags.png" alt="Cypress run in the Dashboard displaying flags" ></DocsImage>
 
-#### Exit code
+#### 退出码
 
-When Cypress finishes running tests, it exits. If there are no failed tests, the
-exit code will be 0.
+当Cypress完成运行测试时，它将退出。如果没有失败的测试，退出码将为0。
 
 ```text
-## All tests pass
+## 所有测试通过
 $ cypress run
 ...
                                         Tests  Passing  Failing
     ✔  All specs passed!      00:16       17       17        0
 
-## print exit code on Mac or Linux
+## 在Mac或Linux上打印退出码
 $ echo $?
 0
 ```
 
-If there are any test failures, then the exit code will match the number of
-tests that failed.
+如果有任何测试失败，则退出码将与失败的测试数匹配.
 
 ```text
-## Spec with two failing tests
+## 有两个失败的测试规格
 $ cypress run
 ...
                                         Tests  Passing  Failing
@@ -451,11 +411,10 @@ $ echo $?
 2
 ```
 
-If Cypress could not run for some reason (for example if no spec files were
-found) then the exit code will be 1.
+如果Cypress由于某些原因不能运行(例如，如果没有找到规格文件)，那么退出码将是1。
 
 ```text
-## No spec files found
+## 没有找到规格文件
 $ cypress run --spec not-found.js
 ...
 Can't run because no spec files were found.
@@ -464,37 +423,35 @@ We searched for any files matching this glob pattern:
 
 not-found.js
 
-## print exit code on Mac or Linux
+## 在Mac或Linux上打印退出码
 $ echo $?
 1
 ```
 
 ### `cypress open`
 
-Opens the Cypress Test Runner.
+打开 Cypress Test Runner.
 
 ```shell
 cypress open [options]
 ```
 
-#### Options:
+#### 选项:
 
-Options passed to `cypress open` will automatically be applied to the project
-you open. These persist on all projects until you quit the Cypress Test Runner.
-These options will also override values in your configuration file
-(`cypress.json` by default).
+传递到`cypress open`的选项将自动应用到您打开的项目。这些将持续存在于所有项目中，直到您退出Cypress Test Runner。
+这些选项也将覆盖配置文件中的值(默认是`cypress.json`文件)。
 
-| Option                | Description                                                                                                                   |
+| 选项                  | 描述                                                                                                                   |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `--browser`, `-b`     | [Path to a custom browser to be added to the list of available browsers in Cypress](#cypress-open-browser-lt-browser-path-gt) |
-| `--config`, `-c`      | [Specify configuration](#cypress-open-config-lt-config-gt)                                                                    |
-| `--config-file`, `-C` | [Specify configuration file](#cypress-open-config-file-lt-config-file-gt)                                                     |
-| `--detached`, `-d`    | Open Cypress in detached mode                                                                                                 |
-| `--env`, `-e`         | [Specify environment variables](#cypress-open-env-lt-env-gt)                                                                  |
-| `--global`            | [Run in global mode](#cypress-open-global)                                                                                    |
-| `--help`, `-h`        | Output usage information                                                                                                      |
-| `--port`, `-p`        | [Override default port](#cypress-open-port-lt-port-gt)                                                                        |
-| `--project`, `-P`     | [Path to a specific project](#cypress-open-project-lt-project-path-gt)                                                        |
+| `--browser`, `-b`     | [要添加到Cypress中可用浏览器列表中的自定义浏览器的路径](#cypress-open-browser-lt-browser-path-gt) |
+| `--config`, `-c`      | [指定配置](#cypress-open-config-lt-config-gt)                                                                    |
+| `--config-file`, `-C` | [指定配置文件](#cypress-open-config-file-lt-config-file-gt)                                                     |
+| `--detached`, `-d`    | 以分离模式打开Cypress                                                                                                 |
+| `--env`, `-e`         | [指定环境变量](#cypress-open-env-lt-env-gt)                                                                  |
+| `--global`            | [在全局模式下运行](#cypress-open-global)                                                                                    |
+| `--help`, `-h`        | 输出使用信息                                                                                                     |
+| `--port`, `-p`        | [覆盖缺省端口](#cypress-open-port-lt-port-gt)                                                                        |
+| `--project`, `-P`     | [特定项目的路径](#cypress-open-project-lt-project-path-gt)                                                        |
 
 #### `cypress open --browser <browser-path>`
 
@@ -508,19 +465,15 @@ with Cypress:
 cypress open --browser /usr/bin/chromium
 ```
 
-If found, the specified browser will be added to the list of available browsers
-in the Cypress Test Runner.
+如果找到，指定的浏览器将被添加到Cypress Test Runner中可用浏览器的列表中.
 
-Currently, only browsers in the Chrome family (including the new Chromium-based
-Microsoft Edge and Brave) and Firefox are supported.
+目前，只有Chrome系列的浏览器(包括新的基于Chrome的Microsoft Edge和Brave)和Firefox得到支持.
 
-[Having trouble launching a browser? Check out our troubleshooting guide](/guides/references/troubleshooting#Launching-browsers)
+[启动浏览器有困难?查看我们的故障排除指南](/guides/references/troubleshooting#Launching-browsers)
 
 #### `cypress open --config <config>`
 
-Set [configuration](/guides/references/configuration) values. Separate multiple
-values with a comma. The values set here override any values set in your
-configuration file.
+设置[配置](/guides/references/configuration) 值。多个值之间用逗号分隔。这里设置的值将覆盖配置文件中设置的任何值。
 
 ```shell
 cypress run --config pageLoadTimeout=100000,watchForFileChanges=false
@@ -528,15 +481,13 @@ cypress run --config pageLoadTimeout=100000,watchForFileChanges=false
 
 #### `cypress open --config-file <config-file>`
 
-You can specify a path to a JSON file where
-[configuration](/guides/references/configuration) values are set. This defaults
-to `cypress.json`.
+您可以指定一个JSON文件的路径，其中[configuration](guidesreferencesconfiguration)值被设置。这个默认值是 `cypress.json`.
 
 ```shell
 cypress open --config-file tests/cypress-config.json
 ```
 
-You can pass `false` to disable the use of a configuration file entirely.
+你可以传递`false`来完全禁用配置文件的使用.
 
 ```shell
 cypress open --config-file false
@@ -544,20 +495,19 @@ cypress open --config-file false
 
 #### `cypress open --env <env>`
 
-Set Cypress [environment variables](/guides/guides/environment-variables).
+设置Cypress[环境变量](/guides/guides/environment-variables).
 
 ```shell
 cypress open --env host=api.dev.local
 ```
 
-Pass several variables using commas and no spaces. Numbers are automatically
-converted from strings.
+传递几个使用逗号和不使用空格的变量。数字从字符串自动转换.
 
 ```shell
 cypress open --env host=api.dev.local,port=4222
 ```
 
-Pass an object as a JSON in a string.
+在字符串中传递一个JSON对象.
 
 ```shell
 cypress open --env flags='{"feature-a":true,"feature-b":false}'
@@ -565,10 +515,8 @@ cypress open --env flags='{"feature-a":true,"feature-b":false}'
 
 #### `cypress open --global`
 
-Opening Cypress in global mode is useful if you have multiple nested projects
-but want to share a single global installation of Cypress. In this case you can
-add each nested project to the Cypress in global mode, thus giving you a nice UI
-to switch between them.
+如果您有多个嵌套项目，但希望共享一个Cypress全局安装，则以全局模式打开Cypress非常有用。
+在这种情况下，您可以在全局模式中向Cypress添加每个嵌套项目，从而提供一个很好的UI来在它们之间切换.
 
 ```shell
 cypress open --global
@@ -582,8 +530,7 @@ cypress open --port 8080
 
 #### `cypress open --project <project-path>`
 
-To see this in action we've set up an
-[example repo to demonstrate this here](https://github.com/cypress-io/cypress-test-nested-projects).
+为了看到它的实际应用，我们设置了一个[示例回购在这里演示](https://github.com/cypress-io/cypress-test-nested-projects).
 
 ```shell
 cypress open --project ./some/nested/folder
@@ -591,18 +538,15 @@ cypress open --project ./some/nested/folder
 
 ### `cypress info`
 
-Prints information about Cypress and the current environment such as:
+打印有关Cypress和当前环境的信息，例如:
 
-- A list of browsers Cypress detected on the machine.
-- Any environment variables that control
-  [proxy configuration](/guides/references/proxy-configuration).
-- Any environment variables that start with the `CYPRESS` prefix (with sensitive
-  variables like [record key](/guides/dashboard/projects#Record-keys) masked for
-  security).
-- The location where run-time data is stored.
-- The location where the Cypress binary is cached.
-- Operating system information.
-- System memory including free space.
+- Cypress在机器上检测到的浏览器列表.
+- 任何控制[代理配置](/guides/references/proxy-configuration)的环境变量.
+- 任何以`CYPRESS`前缀开始的环境变量(敏感变量如[record key](/guides/dashboard/projects#Record-keys)为安全屏蔽)。
+- 存储运行时数据的位置.
+- Cypress二进制文件被缓存的位置.
+- 操作系统信息.
+- 系统内存，包括空闲空间.
 
 ```shell
 cypress info
@@ -643,14 +587,11 @@ System Platform: darwin (19.2.0)
 System Memory: 17.2 GB free 670 MB
 ```
 
-**Tip:** set
-[DEBUG environment variable](/guides/references/troubleshooting#Print-DEBUG-logs)
-to `cypress:launcher` when running `cypress info` to troubleshoot browser
-detection.
+**提示:** 当运行`cypress info`排除浏览器检测故障时，为`cypress:launcher`设置[DEBUG环境变量](guidesreferencestroubleshootingPrint-DEBUG-logs)时，。
 
 ### `cypress verify`
 
-Verify that Cypress is installed correctly and is executable.
+验证Cypress已正确安装并可执行.
 
 ```shell
 cypress verify
@@ -659,12 +600,9 @@ cypress verify
 
 ### `cypress version`
 
-Prints the installed Cypress binary version, the Cypress package version, the
-version of Electron used to build Cypress, and the bundled Node version.
+打印安装的Cypress二进制版本、Cypress包版本、用于构建Cypress的Electron版本和绑定的Node版本。
 
-In most cases the binary and the package versions will be the same, but they
-could be different if you have installed a different version of the package and
-for some reason failed to install the matching binary version.
+在大多数情况下，二进制版本和包版本是相同的，但如果您安装了不同版本的包，但由于某些原因未能安装匹配的二进制版本，它们可能是不同的。
 
 ```shell
 cypress version
@@ -674,7 +612,7 @@ Electron version: 10.1.5
 Bundled Node version: 12.14.1
 ```
 
-You can print each individual component's version number also.
+您还可以打印每个组件的版本号.
 
 ```shell
 cypress version --component package
@@ -689,14 +627,12 @@ cypress version --component node
 
 ### `cypress cache [command]`
 
-Commands for managing the global Cypress cache. The Cypress cache applies to all
-installs of Cypress across your machine, global or not.
+用于管理全局Cypress缓存的命令。Cypress缓存适用于跨机器的所有Cypress安装，全局或非全局.
 
 #### `cypress cache path`
 
-Print the `path` to the Cypress cache folder. You can change the path where the
-Cypress cache is located by following
-[these instructions](/guides/getting-started/installing-cypress#Binary-cache).
+打印“路径”到Cypress缓存文件夹。您可以通过以下方法更改Cypress缓存所在的路径
+[这些指令](/guides/getting-started/installing-cypress#Binary-cache).
 
 ```shell
 cypress cache path
@@ -705,9 +641,7 @@ cypress cache path
 
 #### `cypress cache list`
 
-Print all existing installed versions of Cypress. The output will be a table
-with cached versions and the last time the binary was used by the user,
-determined from the file's access time.
+打印所有现有已安装的Cypress版本。输出将是一个包含缓存版本和用户最后一次使用二进制数据的表，这是由文件的访问时间决定的.
 
 ```shell
 cypress cache list
@@ -720,9 +654,7 @@ cypress cache list
 └─────────┴──────────────┘
 ```
 
-You can calculate the size of every Cypress version folder by adding the
-`--size` argument to the command. Note that calculating the disk size can be
-slow.
+你可以通过在命令中添加`--size`参数来计算每个Cypress版本文件夹的大小。注意，计算磁盘大小可能会很慢。
 
 ```shell
 cypress cache list --size
@@ -737,10 +669,8 @@ cypress cache list --size
 
 #### `cypress cache clear`
 
-Clear the contents of the Cypress cache. This is useful when you want Cypress to
-clear out all installed versions of Cypress that may be cached on your machine.
-After running this command, you will need to run `cypress install` before
-running Cypress again.
+清除Cypress缓存的内容。当您希望Cypress清除可能缓存在您的机器上的所有已安装的Cypress版本时，这是有用的。
+在运行此命令之后，您需要在再次运行cypress之前运行`cypress install`。
 
 ```shell
 cypress cache clear
@@ -748,22 +678,20 @@ cypress cache clear
 
 #### `cypress cache prune`
 
-Deletes all installed Cypress versions from the cache except for the
-currently-installed version.
+从缓存中删除除当前安装的版本外的所有已安装的Cypress版本。
 
 ```shell
 cypress cache prune
 ```
 
-## Debugging commands
+## 调试命令
 
-### Enable Debug Logs
+### 启用调试日志
 
-Cypress is built using the [debug](https://github.com/visionmedia/debug) module.
-That means you can receive helpful debugging output by running Cypress with this
-turned on prior to running `cypress open` or `cypress run`.
+Cypress是使用[debug](https://github.com/visionmedia/debug)模块构建的。
+这意味着在运行`Cypress open`或`Cypress run`之前，通过打开此选项运行Cypress，您可以获得有用的调试输出。
 
-**On Mac or Linux:**
+**On Mac 或 Linux:**
 
 ```shell
 DEBUG=cypress:* cypress open
@@ -773,7 +701,7 @@ DEBUG=cypress:* cypress open
 DEBUG=cypress:* cypress run
 ```
 
-**On Windows:**
+**在 Windows:**
 
 ```shell
 set DEBUG=cypress:*
@@ -783,10 +711,9 @@ set DEBUG=cypress:*
 cypress run
 ```
 
-Cypress is a rather large and complex project involving a dozen or more
-submodules, and the default output can be overwhelming.
+Cypress是一个相当大且复杂的项目，涉及十几个或更多的子模块，默认输出可能会非常大.
 
-**To filter debug output to a specific module**
+**筛选到特定模块的调试输出**
 
 ```shell
 DEBUG=cypress:cli cypress run
@@ -796,15 +723,15 @@ DEBUG=cypress:cli cypress run
 DEBUG=cypress:launcher cypress run
 ```
 
-...or even a 3rd level deep submodule
+...甚至是第三级深度子模块
 
 ```shell
 DEBUG=cypress:server:project cypress run
 ```
 
-## History
+## 历史
 
-| Version                               | Changes                                                |
+| 版本                                  | 变化                                                |
 | ------------------------------------- | ------------------------------------------------------ |
 | [5.4.0](/guides/references/changelog) | Added `prune` subcommand to `cypress cache`            |
 | [5.4.0](/guides/references/changelog) | Added `--size` flag to `cypress cache list` subcommand |
