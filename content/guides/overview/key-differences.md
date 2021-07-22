@@ -51,7 +51,7 @@ Cypress可以防止你被迫总是“像用户一样”去生成给定情境的�
 
 这意味着您不必访问登录页面，输入用户名和密码，并等待页面加载或重定向每次运行的测试。Cypress提供了使用快捷方式和编程方式登录的能力。使用像[' cy.request() '](api/commands/request)这样的命令，你可以直接发送HTTP请求，同时让这些请求与浏览器同步。cookie会自动发送并返回。担心歌珥吗?别这样，它完全被忽略了。你可以像用户一样选择何时进行测试，何时跳过缓慢而重复的部分。
 
-## 抗剥落
+## 抗脆弱
 
 Cypress知道并理解应用程序中同步发生的所有事情。当页面加载和卸载时，它会得到通知。在触发事件时，Cypress不可能错过元素。Cypress甚至知道一个元素是如何快速动画和将[等待它停止动画](/guides/core-concepts/interacting-with-elements#Animations). 此外，它[自动等待元素变为可见](/guides/core-concepts/interacting-with-elements#Visibility), 到 [启用](/guides/core-concepts/interacting-with-elements#Disability), 以及 [停止被覆盖](/guides/core-concepts/interacting-with-elements#Covering). 当页面开始转换时，Cypress将暂停命令执行，直到下面的页面完全加载. 你甚至可以告诉Cypress[等待](/api/commands/wait)对特定的网络请求完成.
 
