@@ -1,24 +1,24 @@
 ---
-title: Introduction
+标题: 介绍
 ---
 
 <Alert type="info">
 
-## <Icon name="graduation-cap"></Icon> What you'll learn
+## <Icon name="graduation-cap"></Icon> 你会学到什么
 
-- An overview of Continuous Integration
-- How to run Cypress tests in Continuous Integration
-- How to configure Cypress in various CI Providers
-- How to record tests to the Cypress Dashboard
-- How to run tests in parallel on CI
+- 持续集成概述
+- 如何在持续集成中运行 Cypress 测试
+- 如何在各种CI供应商中配置 Cypress
+- 如何将测试记录到 Cypress Dashboard
+- 如何在 CI 上并发运行测试
 
 </Alert>
 
-## What is Continuous Integration?
+## 什么是持续集成？
 
 <DocsVideo src="https://youtube.com/embed/USX6AntcPyg"></DocsVideo>
 
-## Setting up CI
+## 配置 CI
 
 <!-- textlint-disable -->
 
@@ -26,47 +26,47 @@ title: Introduction
 
 <!-- textlint-enable -->
 
-### Basics
+### 基本操作
 
-Running Cypress in Continuous Integration is almost the same as running it locally in your terminal. You generally only need to do two things:
+在持续集成中运行 Cypress 几乎与在本地终端运行它相同。 你通常只需要做两件事：
 
-1. **Install Cypress**
+##### 1. **Install Cypress**
 
 ```shell
 npm install cypress --save-dev
 ```
 
-2. **Run Cypress**
+##### 2. **Run Cypress**
 
 ```shell
 cypress run
 ```
 
-Depending on which CI provider you use, you may need a config file. You'll want to refer to your CI provider's documentation to know where to add the commands to install and run Cypress. For more configuration examples check out our [examples](#Examples).
+根据您使用的 CI 提供程序，您可能需要一个配置文件。 您需要参考 CI 提供商的文档以了解在何处添加用于安装和运行 Cypress 的命令。 有关更多配置示例，请查看我们的 [例子](#Examples).
 
-### Boot your server
+### 启动你的服务器
 
-#### Challenges
+#### 挑战
 
-Typically you will need to boot a local server prior to running Cypress. When you boot your web server, it runs as a **long running process** that will never exit. Because of this, you'll need it to run in the **background** - else your CI provider will never move onto the next command.
+通常，您需要在运行 Cypress 之前启动本地服务器。 当您启动 Web 服务器时， 它作为一个不会主动关闭的 **持久运行进程**工作。 因此， 你需要它在后台运行 - 否则你的 CI 提供者将永远无法进入下一条命令。
 
-Backgrounding your server process means that your CI provider will continue to execute the next command after executing the signal to start your server.
+后台处理您的服务器进程意味着您的 CI 提供程序将在执行启动服务器的信号后继续执行下一个命令。
 
-Many people approach this situation by running a command like the following:
+许多人通过运行如下命令来处理这种情况：
 
 ```shell
 npm start & cypress run // Do not do this
 ```
 
-The problem is - what happens if your server takes time to boot? There is no guarantee that when the next command runs (`cypress run`) that your web server is up and available. So your Cypress test may start and try to visit your local server before it is ready to be visited.
+但问题是 - 如果您的服务器需要花费一定时间启动会发生什么？ 没有人能确保当需要运行下一条指令(`cypress run`) 时， 您的网络服务器已完成启动并处于可用状态。 因此，您的 Cypress 测试可能会在本地服务准备好访问之前就已经开始并尝试访问服务器。
 
-#### Solutions
+#### 解决方案
 
-Luckily, there are some solutions for this. Instead of introducing arbitrary waits (like `sleep 20`) you can use a better option.
+幸运的是，有一些解决方案。 您可以使用更好的选择，而不是引入延时等待（如 `sleep 20`）。
 
-**_`wait-on` module_**
+**_`wait-on` 模块_**
 
-Using the [wait-on](https://github.com/jeffbski/wait-on) module, you can block the `cypress run` command from executing until your server has booted.
+通过使用 [wait-on](https://github.com/jeffbski/wait-on) 模块, 你可以阻止 `cypress run` 命令的执行，直到你的服务器启动完成。
 
 ```shell
 npm start & wait-on http://localhost:8080
