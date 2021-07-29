@@ -477,4 +477,4 @@ Cypress团队创建了一个完整的Workshop，展示了如何在流行的 CI �
 - [跨浏览器测试指南 Cross Browser Testing Guide](/guides/guides/cross-browser-testing)
 - [Blog: Setting up Bitbucket Pipelines with proper caching of npm and Cypress](https://www.cypress.io/blog/2018/08/30/setting-up-bitbucket-pipelines-with-proper-caching-of-npm-and-cypress/)
 - [Blog: Record Test Artifacts from any Docker CI](https://www.cypress.io/blog/2018/08/28/record-test-artifacts-from-any-ci/)
-- [Continuous Integration with Cypress](https://www.cypress.io/blog/2019/10/04/webcast-recording-continuous-integration-with-cypress/) ，一个涵盖 TeamCity、Travis 和 CircleCI 设置的网络研讨会, [slides](https://cypress.slides.com/cypress-io/cypress-on-ci).
+- [Continuous Integration with Cypress](https://www.cypress.io/blog/2019/10/04/webcast-recording-continuous-integration-with-cypress/) ，一个涵盖 TeamCity、Travis 和 CircleCI 设置的网络研讨会站点, [slides](https://cypress.slides.com/cypress-io/cypress-on-ci).
